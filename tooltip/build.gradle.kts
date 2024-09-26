@@ -20,6 +20,7 @@
 plugins {
     alias(libs.plugins.agp.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.plugin.compose)
     alias(libs.plugins.vanniktech.maven.publish)
 }
 
@@ -28,11 +29,11 @@ val projectMinSdk: String by project
 val projectTargetSdk: String by project
 
 android {
+    namespace = "dev.patrickgold.compose.tooltip"
     compileSdk = projectCompileSdk.toInt()
 
     defaultConfig {
         minSdk = projectMinSdk.toInt()
-        targetSdk = projectTargetSdk.toInt()
         consumerProguardFiles("proguard-rules.pro")
     }
     compileOptions {
@@ -57,10 +58,11 @@ android {
             }
         }
     }
+
 }
 
 dependencies {
-    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.tooling.preview)
 

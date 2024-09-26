@@ -30,8 +30,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -133,11 +133,11 @@ fun Modifier.tooltip(
 
     val finalBackgroundColor = when {
         backgroundColor.isSpecified -> backgroundColor
-        else -> if (MaterialTheme.colors.isLight) TooltipBackgroundDark else TooltipBackgroundLight
+        else -> if (MaterialTheme.colorScheme.isLight) TooltipBackgroundDark else TooltipBackgroundLight
     }
     val finalTextColor = when {
         textColor.isSpecified -> textColor
-        else -> if (MaterialTheme.colors.isLight) TooltipForegroundDark else TooltipForegroundLight
+        else -> if (MaterialTheme.colorScheme.isLight) TooltipForegroundDark else TooltipForegroundLight
     }
 
     var isTooltipShowing by remember { mutableStateOf(false) }
